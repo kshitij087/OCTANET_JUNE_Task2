@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Define character encoding and compatibility settings -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <!-- Set the viewport to scale the page according to device width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Set the title of the page -->
+  <title>TO-DO LIST</title>
+  
+  <!-- Link to Font Awesome stylesheet for icons -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  
+  <!-- Link to custom stylesheet -->
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <!-- Container element for the entire application -->
+  <div class="container">
+    <!-- Header element displaying the title of the application -->
+    <h1>To-Do List</h1>
+    
+    <!-- Container element for input field and add button -->
+    <div class="input-container">
+      <!-- Input field for adding new tasks -->
+      <input class="todo-input" placeholder="Add a new task...">
+      
+      <!-- Button to add new tasks -->
+      <button class="add-button">
+        <!-- Icon for add button -->
+        <i class="fa fa-plus-circle"></i>
+      </button>
+    </div>
+    
+    <!-- Container element for filters -->
+    <div class="filters">
+      <!-- Filter button for completed tasks -->
+      <div class="filter" data-filter="completed">Complete</div>
+      
+      <!-- Filter button for pending tasks -->
+      <div class="filter" data-filter="pending">Incomplete</div>
+      
+      <!-- Button to delete all tasks -->
+      <div class="delete-all">Delete All</div>
+    </div>
+    
+    <!-- Container element for task list and empty image -->
+    <div class="todos-container">
+      <!-- Unordered list to display tasks -->
+      <ul class="todos"></ul>
+      
+      <!-- Image to display when no tasks are present -->
+      <img class="empty-image" src="./images/empty.svg" width="280" height="200">
+    </div>
+  </div>
+  
+  <!-- Container element for timer display -->
+  <div class="timer-container">
+    <!-- Span element to display current time -->
+    <span id="current-time"></span>
+  </div>
+  
+  <!-- Script tag to link to Main.js file -->
+  <script src="./Main.js"></script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+/* Apply global styles to all elements, their ::before and ::after pseudo-elements */
+*,
+*::before,
+*::after {
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+body {
+  font-family: 'Roboto', sans-serif; /* Set the font family for the entire body */
+  height: 100vh; /* Set the height to 100% of the viewport height */
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+  background: url(./images/background.jpg) no-repeat; /* Set background image */
+  background-position: center; /* Center the background image */
+  background-size: cover; /* Cover the entire viewport with the background image */
+}
+
+.container {
+  width: 400px; /* Set a fixed width */
+  height: auto; /* Allow height to adjust based on content */
+  min-height: 400px; /* Set a minimum height */
+  padding: 30px; /* Add padding inside the container */
+  background: transparent; /* Transparent background */
+  border: 2px solid #ffffff; /* Border with specific color */
+  border-radius: 10px; /* Rounded corners */
+  backdrop-filter: blur(10px); /* Apply blur effect to background */
+}
+
+h1 {
+  color: #eee; /* Set text color */
+  text-align: center; /* Center align text */
+  margin-bottom: 36px; /* Space below the heading */
+}
+
+.input-container {
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space items evenly with space between them */
+  margin-bottom: 25px; /* Space below the container */
+}
+
+.todo-input {
+  flex: 1; /* Allow input to grow and fill available space */
+  outline: none; /* Remove default outline */
+  padding: 10px 10px 10px 20px; /* Add padding inside the input */
+  background-color: transparent; /* Transparent background */
+  border: 2px solid #ffffff; /* Border with specific color */
+  border-radius: 30px; /* Rounded corners */
+  color: #eee; /* Set text color */
+  font-size: 16px; /* Set font size */
+  margin-right: 10px; /* Space to the right of the input */
+}
+
+.todo-input::placeholder {
+  color: #bfbfbf; /* Placeholder text color */
+}
+
+.add-button {
+  border: none; /* Remove default border */
+  outline: none; /* Remove default outline */
+  background: #3d00f0; /* Set background color */
+  color: #fff; /* Set text color */
+  font-size: 35px; /* Set font size */
+  cursor: pointer; /* Show pointer cursor on hover */
+  border-radius: 40px; /* Fully rounded corners */
+  width: 40px; /* Set width */
+  height: 40px; /* Set height */
+}
+
+.empty-image {
+  margin: 100px auto 0; /* Space around the image, centered horizontally */
+  display: block; /* Display as block */
+}
+
+.todo {
+  list-style: none; /* Remove default list styling */
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Center items vertically */
+  justify-content: space-between; /* Space items evenly with space between them */
+  background-color: #463c7b; /* Set background color */
+  border-radius: 5px; /* Rounded corners */
+  margin: 10px 0; /* Space above and below each item */
+  padding: 10px 12px; /* Add padding inside the item */
+  border: 2px solid #f2efef; /* Border with specific color */
+  transition: all 0.2s ease; /* Smooth transition for all properties */
+}
+
+.todo:first-child {
+  margin-top: 0; /* Remove top margin for the first item */
+}
+
+.todo:last-child {
+  margin-bottom: 0; /* Remove bottom margin for the last item */
+}
+
+.todo:hover {
+  background-color: #f00000; /* Change background color on hover */
+}
+
+.todo label {
+  cursor: pointer; /* Show pointer cursor on hover */
+  width: fit-content; /* Width adjusts to content */
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Center items vertically */
+  font-family: 'Roboto', sans-serif; /* Set font family */
+  color: #eee; /* Set text color */
+}
+
+.todo span {
+  padding-left: 20px; /* Space to the left of the text */
+  position: relative; /* Position relative for absolute positioning of pseudo-element */
+  cursor: pointer; /* Show pointer cursor on hover */
+}
+
+span::before {
+  content: ""; /* Empty content for the pseudo-element */
+  height: 20px; /* Set height */
+  width: 20px; /* Set width */
+  position: absolute; /* Position absolutely within the span */
+  margin-left: -30px; /* Shift left to position before the text */
+  border-radius: 100px; /* Fully rounded corners */
+  border: 2px solid #ffffff; /* Border with specific color */
+}
+
+input[type='checkbox'] {
+  visibility: hidden; /* Hide the checkbox */
+}
+
+input:checked+span {
+  text-decoration: line-through; /* Strike through text when checkbox is checked */
+}
+
+.todo:hover input:checked+span::before,
+input:checked+span::before {
+  background: url(./images/check.png) 50% 50% no-repeat #09bb21; /* Background image and color when checked */
+  border-color: #09bb21; /* Change border color when checked */
+}
+
+.todo:hover span::before {
+  border-color: #eee; /* Change border color on hover */
+}
+
+.todo .delete-btn {
+  background-color: transparent; /* Transparent background */
+  border: none; /* Remove default border */
+  cursor: pointer; /* Show pointer cursor on hover */
+  color: #eee; /* Set text color */
+  font-size: 24px; /* Set font size */
+}
+
+.todos-container {
+  height: 300px; /* Set height */
+  overflow: overlay; /* Allow scrolling if content overflows */
+}
+
+.todos-container::-webkit-scrollbar-track {
+  background: rgb(247, 247, 247); /* Background color of the scrollbar track */
+  border-radius: 20px; /* Rounded corners for the track */
+}
+
+.todos-container::-webkit-scrollbar {
+  width: 0; /* Initially hide the scrollbar */
+}
+
+.todos-container:hover::-webkit-scrollbar {
+  width: 7px; /* Show scrollbar on hover */
+}
+
+.todos-container::-webkit-scrollbar-thumb {
+  background: #d5d5d5; /* Background color of the scrollbar thumb */
+  border-radius: 20px; /* Rounded corners for the thumb */
+}
+
+.filters {
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space items evenly with space between them */
+  margin-bottom: 25px; /* Space below the filters */
+}
+
+.filter {
+  color: #eee; /* Set text color */
+  padding: 5px 15px; /* Add padding inside the filter */
+  border-radius: 100px; /* Fully rounded corners */
+  border: 2px solid #48ff00; /* Border with specific color */
+  transition: all 0.2s ease; /* Smooth transition for all properties */
+  cursor: pointer; /* Show pointer cursor on hover */
+}
+
+.filter.active,
+.filter:hover {
+  background-color: #43e123; /* Change background color when active or on hover */
+}
+
+.delete-all {
+  display: flex; /* Use flexbox for layout */
+  color: #eee; /* Set text color */
+  padding: 7px 15px; /* Add padding inside the button */
+  cursor:alias; /* Show pointer cursor on hover */
+  transition: all 0.2s ease; /* Smooth transition for all properties */
+}
+
+.delete-all:hover {
+  border-radius: 50%; /* Fully rounded corners on hover */
+  background-color: #f00000; /* Change background color on hover */
+}
+
+.timer-container {
+  position: fixed; /* Fixed position in the viewport */
+  top: 0; /* Align to the top */
+  left: 0; /* Align to the left */
+  padding: 10px; /* Add padding inside the container */
+  background-color: transparent; /* Transparent background */
+  width: 100px; /* Set width */
+  text-align: center; /* Center align text */
+}
+
+#current-time {
+  font-size: 25px; /* Set font size */
+  font-weight: bold; /* Make text bold */
+  color: #eee;
+}
